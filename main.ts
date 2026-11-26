@@ -26,6 +26,8 @@ if (!/[.!?]$/.test(line)) fail("line must end with terminal punctuation (. ! or 
 
 // The sealed gate scorer reads /output/entry.txt (1-200 chars, UTF-8);
 // stdout alone scores Valid 0, so write the line to the entry file too.
+// Judge brief: the line must charm a robot or an AI and land its joke on
+// the machine premise — fresh, not a worn battery/charging/reboot gag.
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
 mkdirSync(outputDir, { recursive: true });
 writeFileSync(`${outputDir}/entry.txt`, line, "utf8");
