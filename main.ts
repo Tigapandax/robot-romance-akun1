@@ -22,6 +22,8 @@ if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(line)) fail("line cont
 if (line.endsWith(" ")) fail("line has a trailing space");
 if (line.startsWith(" ")) fail("line has a leading space");
 if (line.trim().length === 0) fail("line is only whitespace");
+if (line.split(/\s+/).length < 3) fail("line must have at least 3 words");
+if (/https?:\/\//.test(line)) fail("line must not contain a URL");
 if (!/[.!?]$/.test(line)) fail("line must end with terminal punctuation (. ! or ?)");
 
 // The sealed gate scorer reads /output/entry.txt (1-200 chars, UTF-8);
